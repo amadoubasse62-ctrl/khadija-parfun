@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails Produit - Khadija Parfum</title>
+    <meta name="description" content="Découvrez en détail nos parfums de luxe. Informations complètes, notes olfactives et avis clients.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js"></script>
+    <script src="cart.js"></script>
+    <script src="product.js"></script>
+    <script src="email.js"></script>
+    <style>
+        .product-hero {
+            background: linear-gradient(rgba(139, 69, 19, 0.8), rgba(212, 175, 55, 0.8)), 
+                        url('https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .product-detail {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-image-container {
+            position: relative;
+        }
+
+        .product-main-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .product-thumbnails {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .product-thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .product-thumbnail:hover,
+        .product-thumbnail.active {
+            border-color: var(--primary-color);
+        }
+
+        .product-info {
+            padding: 2rem 0;
+        }
+
+        .product-category {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .product-brand {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .product-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .product-features {
+            margin-bottom: 2rem;
+        }
+
+        .product-features h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .quantity-btn {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .quantity-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .quantity-input {
+            width: 60px;
+            text-align: center;
+            padding: 0.5rem;
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .add-to-cart-btn {
+            background: var(--gradient);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            flex: 1;
+        }
+
+        .add-to-cart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .product-details-tabs {
+            background: var(--accent-color);
+            padding: 4rem 0;
+        }
+
+        .tabs-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tabs-nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            background: var(--white);
+            color: var(--text-light);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .tab-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .tab-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .note-category {
+            text-align: center;
+        }
+
+        .note-category h5 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .note-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .note-list li {
+            padding: 0.25rem 0;
+            color: var(--text-light);
+        }
+
+        .reviews-section {
+            background: var(--white);
+            padding: 4rem 0;
+        }
+
+        .review-card {
+            background: var(--accent-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .review-rating {
+            color: var(--secondary-color);
+        }
+
+        .review-text {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .product-title {
+                font-size: 2rem;
+            }
+            
+            .tabs-nav {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🌸</span>
+                    <h1>Khadija Parfum</h1>
+                </div>
+                <nav>
+                    <a href="mon site.html">Accueil</a>
+                    <a href="about.html">À Propos</a>
+                    <a href="mon site.html#produits">Produits</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <button class="cart-btn" onclick="toggleCart()">
+                    🛒 Panier <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Hero -->
+    <section class="product-hero">
+        <div class="hero-content">
+            <h2 id="productTitle">Rose Mystique</h2>
+            <p id="productSubtitle">Une fragrance florale délicate aux notes de rose et jasmin</p>
+        </div>
+    </section>
+
+    <!-- Product Detail -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-container">
+                <!-- Product Images -->
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Rose Mystique" class="product-main-image" id="mainImage">
+                    
+                    <div class="product-thumbnails">
+                        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                             alt="Vue 1" class="product-thumbnail active" onclick="changeImage(this.src)">
+                        <img src="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                             alt="Vue 2" class="product-thumbnail" onclick="changeImage(this.src)">
+                        <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59d75?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                             alt="Vue 3" class="product-thumbnail" onclick="changeImage(this.src)">
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <div class="product-category" id="productCategory">Parfum Femme</div>
+                    <h1 class="product-title" id="productName">Rose Mystique</h1>
+                    <div class="product-brand" id="productBrand">Khadija Collection</div>
+                    <div class="product-price" id="productPrice">25 000 FCFA</div>
+                    
+                    <div class="product-description" id="productDescription">
+                        Rose Mystique est une fragrance florale délicate qui capture l'essence même de la rose dans toute sa splendeur. 
+                        Cette création envoûtante mêle harmonieusement les notes de rose de Damas et de jasmin sambac pour créer un parfum 
+                        d'une élégance raffinée. Parfait pour les occasions spéciales et les moments de grâce.
+                    </div>
+
+                    <div class="product-features">
+                        <h4>Caractéristiques</h4>
+                        <ul class="feature-list">
+                            <li>Concentration: Eau de Parfum</li>
+                            <li>Durée: 6-8 heures</li>
+                            <li>Volume: 50ml</li>
+                            <li>Origine: France</li>
+                            <li>Type: Florale</li>
+                            <li>Occasion: Tous les jours</li>
+                        </ul>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label for="quantity">Quantité:</label>
+                        <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                        <input type="number" id="quantity" class="quantity-input" value="1" min="1" max="10">
+                        <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="add-to-cart-btn" onclick="addToCartFromProductPage()">
+                            Ajouter au Panier
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Details Tabs -->
+    <section class="product-details-tabs">
+        <div class="container">
+            <div class="tabs-container">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" onclick="showTab('notes')">Notes Olfactives</button>
+                    <button class="tab-btn" onclick="showTab('usage')">Mode d'Emploi</button>
+                    <button class="tab-btn" onclick="showTab('reviews')">Avis Clients</button>
+                </div>
+
+                <div class="tab-content">
+                    <div id="notes-tab" class="tab-panel">
+                        <h4>Pyramide Olfactive</h4>
+                        <div class="notes-grid">
+                            <div class="note-category">
+                                <h5>Notes de Tête</h5>
+                                <ul class="note-list">
+                                    <li>Rose de Damas</li>
+                                    <li>Bergamote</li>
+                                    <li>Pamplemousse</li>
+                                </ul>
+                            </div>
+                            <div class="note-category">
+                                <h5>Notes de Cœur</h5>
+                                <ul class="note-list">
+                                    <li>Jasmin Sambac</li>
+                                    <li>Rose Centifolia</li>
+                                    <li>Muguet</li>
+                                </ul>
+                            </div>
+                            <div class="note-category">
+                                <h5>Notes de Fond</h5>
+                                <ul class="note-list">
+                                    <li>Musc Blanc</li>
+                                    <li>Bois de Santal</li>
+                                    <li>Ambre Gris</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="usage-tab" class="tab-panel" style="display: none;">
+                        <h4>Conseils d'Application</h4>
+                        <ul class="feature-list">
+                            <li>Appliquez le parfum sur les zones où le pouls bat (poignets, cou, décolleté)</li>
+                            <li>Vaporisez à 15-20 cm de la peau pour une diffusion optimale</li>
+                            <li>Évitez de frotter les poignets après application</li>
+                            <li>Appliquez sur peau propre et hydratée</li>
+                            <li>Conservez à l'abri de la lumière et de la chaleur</li>
+                        </ul>
+                    </div>
+
+                    <div id="reviews-tab" class="tab-panel" style="display: none;">
+                        <h4>Avis Clients</h4>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <span class="reviewer-name">Marie K.</span>
+                                <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <div class="review-text">
+                                "Un parfum absolument magnifique ! La rose est très naturelle et le jasmin apporte une touche d'élégance. 
+                                La tenue est excellente, je le sens encore le soir. Je recommande vivement !"
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="review-header">
+                                <span class="reviewer-name">Fatou D.</span>
+                                <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <div class="review-text">
+                                "Parfait pour les occasions spéciales. Le flacon est très beau et le parfum est d'une qualité exceptionnelle. 
+                                Livraison rapide et emballage soigné. Merci Khadija Parfum !"
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="review-header">
+                                <span class="reviewer-name">Aïcha M.</span>
+                                <span class="review-rating">⭐⭐⭐⭐</span>
+                            </div>
+                            <div class="review-text">
+                                "Très belle fragrance florale, très féminine. Le prix est raisonnable pour la qualité. 
+                                Seul petit bémol : la diffusion pourrait être un peu plus forte."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Khadija Parfum</h3>
+                    <p>Votre destination pour des parfums d'exception. Nous sélectionnons les meilleures fragrances du monde pour vous offrir une expérience olfactive unique.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens Utiles</h3>
+                    <a href="mon site.html">Accueil</a>
+                    <a href="about.html">À Propos</a>
+                    <a href="mon site.html#produits">Produits</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>📧 contact@khadijaparfun.com</p>
+                    <p>📞 +221 78 714 63 90</p>
+                    <p>📍 Diourbel, Sénégal</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Livraison</h3>
+                    <p>🚚 Livraison gratuite dès 50 000 FCFA</p>
+                    <p>⏰ Délai: 2-3 jours ouvrés</p>
+                    <p>🔄 Retour sous 14 jours</p>
+                </div>
+            </div>
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #444;">
+                <p>&copy; 2024 Khadija Parfum. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

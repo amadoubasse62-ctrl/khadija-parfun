@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions Générales de Vente - Khadija Parfum</title>
+    <meta name="description" content="Conditions générales de vente de Khadija Parfum. Découvrez nos politiques de livraison, retour et garanties.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js"></script>
+    <style>
+        .conditions-hero {
+            background: linear-gradient(rgba(139, 69, 19, 0.8), rgba(212, 175, 55, 0.8)), 
+                        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .conditions-content {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .conditions-text {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .conditions-text h2 {
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .conditions-text h3 {
+            color: var(--text-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .conditions-text p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .conditions-text ul, .conditions-text ol {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .conditions-text li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: var(--accent-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .toc {
+            background: var(--accent-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+        }
+
+        .toc h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .toc a:hover {
+            color: var(--primary-color);
+            padding-left: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .conditions-hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🌸</span>
+                    <h1>Khadija Parfum</h1>
+                </div>
+                <nav>
+                    <a href="mon site.html">Accueil</a>
+                    <a href="about.html">À Propos</a>
+                    <a href="mon site.html#produits">Produits</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <button class="cart-btn" onclick="toggleCart()">
+                    🛒 Panier <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conditions Hero -->
+    <section class="conditions-hero">
+        <div class="hero-content">
+            <h2>Conditions Générales de Vente</h2>
+            <p>Dernière mise à jour : Octobre 2024</p>
+        </div>
+    </section>
+
+    <!-- Conditions Content -->
+    <section class="conditions-content">
+        <div class="container">
+            <div class="conditions-text">
+                <!-- Table of Contents -->
+                <div class="toc">
+                    <h3>📋 Sommaire</h3>
+                    <ul>
+                        <li><a href="#article1">1. Objet</a></li>
+                        <li><a href="#article2">2. Prix</a></li>
+                        <li><a href="#article3">3. Commandes</a></li>
+                        <li><a href="#article4">4. Paiement</a></li>
+                        <li><a href="#article5">5. Livraison</a></li>
+                        <li><a href="#article6">6. Droit de rétractation</a></li>
+                        <li><a href="#article7">7. Garanties</a></li>
+                        <li><a href="#article8">8. Données personnelles</a></li>
+                        <li><a href="#article9">9. Responsabilité</a></li>
+                        <li><a href="#article10">10. Droit applicable</a></li>
+                    </ul>
+                </div>
+
+                <!-- Préambule -->
+                <div class="highlight-box">
+                    <p><strong>Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre Khadija Parfum et ses clients. En passant commande sur notre site, vous acceptez sans réserve les présentes CGV.</strong></p>
+                </div>
+
+                <!-- Article 1 -->
+                <h2 id="article1">1. Objet</h2>
+                <p>Les présentes conditions générales de vente régissent la vente en ligne de parfums et produits cosmétiques par Khadija Parfum, enregistrée sous le numéro NINEA [à compléter], dont le siège social est situé à Diourbel, Sénégal.</p>
+
+                <!-- Article 2 -->
+                <h2 id="article2">2. Prix</h2>
+                <h3>2.1 Prix des produits</h3>
+                <p>Les prix de nos produits sont indiqués en Francs CFA (FCFA), toutes taxes comprises (TTC). Nous nous réservons le droit de modifier nos prix à tout moment, mais les produits seront facturés sur la base des tarifs en vigueur au moment de la validation de la commande.</p>
+
+                <h3>2.2 Frais de livraison</h3>
+                <ul>
+                    <li>Livraison gratuite pour toute commande de 50 000 FCFA et plus</li>
+                    <li>Diourbel : 2 000 FCFA</li>
+                    <li>Reste du Sénégal : 3 000 FCFA</li>
+                </ul>
+
+                <!-- Article 3 -->
+                <h2 id="article3">3. Commandes</h2>
+                <h3>3.1 Processus de commande</h3>
+                <p>La commande s'effectue en ligne sur notre site www.khadijaparfun.com. Le client sélectionne les produits, les ajoute au panier, renseigne ses coordonnées et valide sa commande.</p>
+
+                <h3>3.2 Confirmation de commande</h3>
+                <p>Une confirmation de commande est envoyée par email dès la validation de la commande. Cette confirmation récapitule les produits commandés, le montant total et les informations de livraison.</p>
+
+                <h3>3.3 Modification et annulation</h3>
+                <p>Le client peut modifier ou annuler sa commande dans les 2 heures suivant la confirmation en contactant notre service client au +221 78 714 63 90.</p>
+
+                <!-- Article 4 -->
+                <h2 id="article4">4. Paiement</h2>
+                <h3>4.1 Modalités de paiement</h3>
+                <p>Nous acceptons les modes de paiement suivants :</p>
+                <ul>
+                    <li>Mobile Money (Orange Money, Free Money, Wave)</li>
+                    <li>Virement bancaire</li>
+                    <li>Paiement à la livraison (espèces)</li>
+                    <li>Western Union / MoneyGram</li>
+                </ul>
+
+                <h3>4.2 Sécurité des paiements</h3>
+                <p>Toutes les transactions sont sécurisées et cryptées. Nous ne conservons aucune information bancaire sensible.</p>
+
+                <h3>4.3 Paiement échelonné</h3>
+                <p>Pour les commandes de plus de 100 000 FCFA, un paiement en 2 ou 3 fois sans frais est possible. Contactez-nous pour organiser votre échéancier.</p>
+
+                <!-- Article 5 -->
+                <h2 id="article5">5. Livraison</h2>
+                <h3>5.1 Délais de livraison</h3>
+                <ul>
+                    <li>Diourbel : 24-48 heures</li>
+                    <li>Dakar et régions : 2-3 jours ouvrés</li>
+                    <li>Reste du Sénégal : 3-5 jours ouvrés</li>
+                </ul>
+
+                <h3>5.2 Zone de livraison</h3>
+                <p>Nous livrons sur tout le territoire sénégalais. Pour les livraisons hors Sénégal, veuillez nous contacter.</p>
+
+                <h3>5.3 Réception de la commande</h3>
+                <p>Il est recommandé de vérifier l'état du colis en présence du livreur. En cas de dommage apparent, faites une réserve écrite sur le bon de livraison.</p>
+
+                <!-- Article 6 -->
+                <h2 id="article6">6. Droit de rétractation</h2>
+                <h3>6.1 Délai de rétractation</h3>
+                <p>Le client dispose d'un délai de 14 jours à compter de la réception du produit pour exercer son droit de rétractation sans avoir à justifier de motifs.</p>
+
+                <h3>6.2 Conditions de retour</h3>
+                <p>Les produits doivent être retournés dans leur emballage d'origine, non utilisés et scellés. Les frais de retour sont à la charge du client.</p>
+
+                <h3>6.3 Remboursement</h3>
+                <p>Le remboursement sera effectué dans un délai de 14 jours suivant la réception du produit retourné, par le même moyen de paiement utilisé lors de l'achat.</p>
+
+                <!-- Article 7 -->
+                <h2 id="article7">7. Garanties</h2>
+                <h3>7.1 Garantie d'authenticité</h3>
+                <p>Tous nos parfums sont 100% authentiques et proviennent directement des maisons de parfumerie ou de distributeurs officiels.</p>
+
+                <h3>7.2 Garantie légale</h3>
+                <p>Nos produits bénéficient de la garantie légale de conformité et de la garantie contre les vices cachés selon la législation en vigueur.</p>
+
+                <h3>7.3 Service après-vente</h3>
+                <p>Pour toute réclamation, contactez notre service client au +221 78 714 63 90 ou par email à contact@khadijaparfun.com.</p>
+
+                <!-- Article 8 -->
+                <h2 id="article8">8. Données personnelles</h2>
+                <h3>8.1 Collecte des données</h3>
+                <p>Les informations collectées lors de la commande sont nécessaires au traitement de votre commande et à la gestion de la relation client.</p>
+
+                <h3>8.2 Protection des données</h3>
+                <p>Vos données personnelles sont protégées et utilisées conformément à la réglementation en vigueur. Elles ne sont jamais transmises à des tiers sans votre consentement.</p>
+
+                <h3>8.3 Droit d'accès</h3>
+                <p>Vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles. Pour exercer ce droit, contactez-nous à contact@khadijaparfun.com.</p>
+
+                <!-- Article 9 -->
+                <h2 id="article9">9. Responsabilité</h2>
+                <p>Khadija Parfum ne saurait être tenue responsable de l'inexécution du contrat en cas de force majeure, de perturbations ou grèves totales ou partielles, notamment des services postaux et moyens de transport.</p>
+
+                <h3>9.1 Limitation de responsabilité</h3>
+                <p>Notre responsabilité ne saurait être engagée pour tous les inconvénients ou dommages inhérents à l'utilisation du réseau Internet, notamment une rupture de service, intrusion extérieure ou présence de virus informatiques.</p>
+
+                <!-- Article 10 -->
+                <h2 id="article10">10. Droit applicable</h2>
+                <h3>10.1 Loi applicable</h3>
+                <p>Les présentes CGV sont soumises à la loi sénégalaise.</p>
+
+                <h3>10.2 Règlement des litiges</h3>
+                <p>En cas de litige, une solution amiable sera recherchée avant toute action judiciaire. À défaut, les tribunaux sénégalais seront seuls compétents.</p>
+
+                <!-- Contact -->
+                <div class="highlight-box" style="margin-top: 3rem;">
+                    <h3>📞 Service Client</h3>
+                    <p><strong>Pour toute question concernant nos conditions de vente :</strong></p>
+                    <ul>
+                        <li>Email : contact@khadijaparfun.com</li>
+                        <li>Téléphone : +221 78 714 63 90</li>
+                        <li>Adresse : Diourbel, Sénégal</li>
+                    </ul>
+                    <p><em>Notre service client est disponible du lundi au samedi de 8h à 18h.</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Khadija Parfum</h3>
+                    <p>Votre destination pour des parfums d'exception. Nous sélectionnons les meilleures fragrances du monde pour vous offrir une expérience olfactive unique.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens Utiles</h3>
+                    <a href="mon site.html">Accueil</a>
+                    <a href="about.html">À Propos</a>
+                    <a href="mon site.html#produits">Produits</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="conditions.html">CGV</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>📧 contact@khadijaparfun.com</p>
+                    <p>📞 +221 78 714 63 90</p>
+                    <p>📍 Diourbel, Sénégal</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Livraison</h3>
+                    <p>🚚 Livraison gratuite dès 50 000 FCFA</p>
+                    <p>⏰ Délai: 2-3 jours ouvrés</p>
+                    <p>🔄 Retour sous 14 jours</p>
+                </div>
+            </div>
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #444;">
+                <p>&copy; 2024 Khadija Parfum. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cart functionality (simplified)
+        function toggleCart() {
+            alert('Panier disponible sur la page principale');
+        }
+
+        // Smooth scrolling for table of contents
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

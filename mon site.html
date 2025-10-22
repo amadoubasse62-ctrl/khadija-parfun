@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khadija Parfum - Boutique de Parfums de Luxe</title>
+    <meta name="description" content="Découvrez notre collection exclusive de parfums de luxe chez Khadija Parfum. Des fragrances raffinées pour hommes et femmes.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js"></script>
+    <script src="cart.js"></script>
+    <script src="product.js"></script>
+    <script src="email.js"></script>
+    <script src="newsletter.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🌸</span>
+                    <h1>Khadija Parfum</h1>
+                </div>
+                <nav>
+                    <a href="#accueil">Accueil</a>
+                    <a href="about.html">À Propos</a>
+                    <a href="#produits">Produits</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <button class="cart-btn" onclick="toggleCart()">
+                    🛒 Panier <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h2>Découvrez l'Art de la Parfumerie</h2>
+            <p>Plongez dans un univers de fragrances raffinées et laissez-vous transporter par nos créations exclusives</p>
+            <a href="#produits" class="cta-button">Découvrir nos parfums</a>
+        </div>
+    </section>
+
+    <!-- Search -->
+    <section class="search-container">
+        <div class="container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Rechercher un parfum...">
+          </div>
+      </section>
+
+    <!-- Categories -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2 class="section-title">Nos Catégories</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="filterByCategory('femme')">
+                    <div class="category-icon">👩</div>
+                    <h3>Parfums Femme</h3>
+                    <p>Fragrances délicates et envoûtantes</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('homme')">
+                    <div class="category-icon">👨</div>
+                    <h3>Parfums Homme</h3>
+                    <p>Essences viriles et sophistiquées</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('unisexe')">
+                    <div class="category-icon">👥</div>
+                    <h3>Parfums Unisexe</h3>
+                    <p>Créations universelles et modernes</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('luxe')">
+                    <div class="category-icon">💎</div>
+                    <h3>Collection Luxe</h3>
+                    <p>Parfums d'exception et rareté</p>
+                </div>
+          </div>
+          </div>
+    </section>
+
+    <!-- Products -->
+    <section id="produits" class="products">
+        <div class="container">
+            <h2 class="section-title">Notre Collection</h2>
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be dynamically added here -->
+          </div>
+          </div>
+      </section>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Votre Panier</h3>
+                <button class="close-btn" onclick="toggleCart()">&times;</button>
+            </div>
+            <div id="cartItems"></div>
+            <div class="cart-total" id="cartTotal">Total: 0 FCFA</div>
+            <button class="checkout-btn" onclick="checkout()">Passer la commande</button>
+        </div>
+  </div>
+
+    <!-- Newsletter Section -->
+    <section style="background: linear-gradient(135deg, #8B4513 0%, #D4AF37 100%); padding: 3rem 0;">
+        <div class="container">
+            <div style="max-width: 600px; margin: 0 auto; text-align: center; color: white;">
+                <h3 style="font-size: 2rem; margin-bottom: 1rem;">📧 Restez Informé</h3>
+                <p style="margin-bottom: 2rem; opacity: 0.9;">Inscrivez-vous à notre newsletter pour recevoir nos offres exclusives et nouveautés</p>
+                <form id="newsletterForm" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                    <input type="email" placeholder="Votre adresse email" required style="flex: 1; min-width: 250px; padding: 1rem; border: none; border-radius: 8px; font-size: 1rem;">
+                    <button type="submit" style="background: white; color: #8B4513; border: none; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; cursor: pointer;">S'inscrire</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Khadija Parfum</h3>
+                    <p>Votre destination pour des parfums d'exception. Nous sélectionnons les meilleures fragrances du monde pour vous offrir une expérience olfactive unique.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens Utiles</h3>
+                    <a href="#accueil">Accueil</a>
+                    <a href="about.html">À Propos</a>
+                    <a href="#produits">Produits</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="conditions.html">CGV</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>📧 contact@khadijaparfun.com</p>
+                    <p>📞 +221 78 714 63 90</p>
+                    <p>📍 Diourbel, Sénégal</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Livraison</h3>
+                    <p>🚚 Livraison gratuite dès 50 000 FCFA</p>
+                    <p>⏰ Délai: 2-3 jours ouvrés</p>
+                    <p>🔄 Retour sous 14 jours</p>
+                </div>
+            </div>
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #444;">
+                <p>&copy; 2024 Khadija Parfum. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - Khadija Parfum</title>
+    <meta name="description" content="Découvrez l'histoire de Khadija Parfum, notre passion pour les parfums de luxe et notre engagement qualité.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js"></script>
+    <style>
+        .about-hero {
+            background: linear-gradient(rgba(139, 69, 19, 0.8), rgba(212, 175, 55, 0.8)), 
+                        url('https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .about-content {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .about-section {
+            margin-bottom: 4rem;
+        }
+
+        .about-section h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: var(--accent-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(139, 69, 19, 0.2);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .value-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .team-section {
+            background: var(--accent-color);
+            padding: 4rem 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(139, 69, 19, 0.2);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--white);
+        }
+
+        .member-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .member-bio {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .stats-section {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h2 {
+                font-size: 2rem;
+            }
+            
+            .about-section h2 {
+                font-size: 2rem;
+            }
+            
+            .about-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🌸</span>
+                    <h1>Khadija Parfum</h1>
+                </div>
+                <nav>
+                    <a href="mon site.html">Accueil</a>
+                    <a href="about.html">À Propos</a>
+                    <a href="mon site.html#produits">Produits</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <button class="cart-btn" onclick="toggleCart()">
+                    🛒 Panier <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="hero-content">
+            <h2>Notre Histoire</h2>
+            <p>Une passion pour l'art de la parfumerie depuis plus de 10 ans</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content">
+        <div class="container">
+            <div class="about-section">
+                <h2>Qui Sommes-Nous ?</h2>
+                <div class="about-text">
+                    <p>Khadija Parfum est née d'une passion profonde pour l'art de la parfumerie et du désir de partager les plus belles fragrances du monde avec nos clients camerounais. Fondée en 2014 par Khadija Moussa, notre boutique s'est rapidement imposée comme une référence dans l'univers des parfums de luxe au Cameroun.</p>
+                    
+                    <p>Notre mission est de démocratiser l'accès aux parfums d'exception tout en préservant l'authenticité et la qualité des créations que nous proposons. Chaque parfum de notre collection est soigneusement sélectionné pour sa qualité, son originalité et sa capacité à éveiller les sens.</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🎯</div>
+                        <h3>Qualité</h3>
+                        <p>Nous sélectionnons uniquement les parfums des meilleures maisons de parfumerie mondiales, garantissant authenticité et excellence.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">💎</div>
+                        <h3>Exclusivité</h3>
+                        <p>Notre collection comprend des créations rares et limitées, offrant à nos clients des fragrances uniques et distinguées.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>Service Client</h3>
+                        <p>Notre équipe experte vous accompagne dans le choix de votre parfum idéal, avec des conseils personnalisés et professionnels.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🌍</div>
+                        <h3>Accessibilité</h3>
+                        <p>Nous rendons les parfums de luxe accessibles à tous, avec des prix compétitifs et des facilités de paiement adaptées.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Notre Équipe</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">👩</div>
+                    <div class="member-name">Khadija Moussa</div>
+                    <div class="member-role">Fondatrice & Directrice</div>
+                    <div class="member-bio">Passionnée de parfumerie depuis plus de 15 ans, Khadija a créé cette boutique pour partager sa passion avec les amateurs de fragrances au Cameroun.</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">👨</div>
+                    <div class="member-name">Jean-Pierre Nguema</div>
+                    <div class="member-role">Expert Parfumeur</div>
+                    <div class="member-bio">Formé en France dans les plus grandes maisons de parfumerie, Jean-Pierre apporte son expertise technique et son nez exceptionnel à notre équipe.</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">👩</div>
+                    <div class="member-name">Fatou Diallo</div>
+                    <div class="member-role">Responsable Clientèle</div>
+                    <div class="member-bio">Fatou s'occupe de la satisfaction de nos clients avec dévouement, offrant des conseils personnalisés et un service d'exception.</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-photo">👨</div>
+                    <div class="member-name">Mohamed Traoré</div>
+                    <div class="member-role">Gestionnaire Logistique</div>
+                    <div class="member-bio">Mohamed assure la gestion efficace de nos stocks et la livraison rapide de vos commandes dans tout le Cameroun.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title">Nos Réalisations</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Parfums Disponibles</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Clients Satisfaits</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Marques Partenaires</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Années d'Expérience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Khadija Parfum</h3>
+                    <p>Votre destination pour des parfums d'exception. Nous sélectionnons les meilleures fragrances du monde pour vous offrir une expérience olfactive unique.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens Utiles</h3>
+                    <a href="mon site.html">Accueil</a>
+                    <a href="about.html">À Propos</a>
+                    <a href="mon site.html#produits">Produits</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>📧 contact@khadijaparfun.com</p>
+                    <p>📞 +221 78 714 63 90</p>
+                    <p>📍 Diourbel, Sénégal</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Livraison</h3>
+                    <p>🚚 Livraison gratuite dès 50 000 FCFA</p>
+                    <p>⏰ Délai: 2-3 jours ouvrés</p>
+                    <p>🔄 Retour sous 14 jours</p>
+                </div>
+            </div>
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #444;">
+                <p>&copy; 2024 Khadija Parfum. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

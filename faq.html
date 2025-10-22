@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Questions Fréquentes - Khadija Parfum</title>
+    <meta name="description" content="Trouvez les réponses à vos questions sur Khadija Parfum : livraison, paiement, retours et authenticité de nos parfums.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js"></script>
+    <style>
+        .faq-hero {
+            background: linear-gradient(rgba(139, 69, 19, 0.8), rgba(212, 175, 55, 0.8)), 
+                        url('https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .faq-content {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .faq-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-tab {
+            background: var(--accent-color);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .category-tab:hover,
+        .category-tab.active {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-section {
+            margin-bottom: 3rem;
+        }
+
+        .faq-section h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .faq-item {
+            background: var(--accent-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-dark);
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: rgba(139, 69, 19, 0.05);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .search-faq {
+            margin-bottom: 3rem;
+        }
+
+        .search-faq input {
+            width: 100%;
+            max-width: 600px;
+            padding: 1rem;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .search-faq input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .faq-hero h2 {
+                font-size: 2rem;
+            }
+            
+            .faq-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🌸</span>
+                    <h1>Khadija Parfum</h1>
+                </div>
+                <nav>
+                    <a href="mon site.html">Accueil</a>
+                    <a href="about.html">À Propos</a>
+                    <a href="mon site.html#produits">Produits</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <button class="cart-btn" onclick="toggleCart()">
+                    🛒 Panier <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- FAQ Hero -->
+    <section class="faq-hero">
+        <div class="hero-content">
+            <h2>Questions Fréquentes</h2>
+            <p>Trouvez rapidement les réponses à vos questions</p>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="faq-content">
+        <div class="container">
+            <!-- Search -->
+            <div class="search-faq">
+                <input type="text" id="faqSearch" placeholder="Rechercher une question...">
+            </div>
+
+            <!-- Categories -->
+            <div class="faq-categories">
+                <div class="category-tab active" onclick="filterCategory('all')">
+                    <div class="category-icon">📋</div>
+                    <h4>Toutes</h4>
+                </div>
+                <div class="category-tab" onclick="filterCategory('commande')">
+                    <div class="category-icon">🛒</div>
+                    <h4>Commandes</h4>
+                </div>
+                <div class="category-tab" onclick="filterCategory('livraison')">
+                    <div class="category-icon">🚚</div>
+                    <h4>Livraison</h4>
+                </div>
+                <div class="category-tab" onclick="filterCategory('paiement')">
+                    <div class="category-icon">💳</div>
+                    <h4>Paiement</h4>
+                </div>
+                <div class="category-tab" onclick="filterCategory('produit')">
+                    <div class="category-icon">🌸</div>
+                    <h4>Produits</h4>
+                </div>
+            </div>
+
+            <!-- Commandes -->
+            <div class="faq-section" data-category="commande">
+                <h3>🛒 Commandes</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Comment passer une commande ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Pour passer une commande sur Khadija Parfum :
+                            <ol>
+                                <li>Parcourez notre catalogue de parfums</li>
+                                <li>Cliquez sur "Ajouter au panier" pour vos produits préférés</li>
+                                <li>Accédez à votre panier en cliquant sur l'icône 🛒</li>
+                                <li>Vérifiez votre commande et remplissez vos informations</li>
+                                <li>Cliquez sur "Passer la commande"</li>
+                                <li>Vous recevrez une confirmation par email</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Puis-je modifier ma commande après validation ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Oui, vous pouvez modifier votre commande dans les 2 heures suivant la confirmation. Contactez-nous immédiatement au +221 78 714 63 90 ou par email à contact@khadijaparfun.com avec votre numéro de commande.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Comment annuler ma commande ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Vous pouvez annuler votre commande gratuitement avant son expédition. Contactez-nous au +221 78 714 63 90 avec votre numéro de commande. Une fois expédiée, consultez notre politique de retour.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Livraison -->
+            <div class="faq-section" data-category="livraison">
+                <h3>🚚 Livraison</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quels sont les délais de livraison ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Nos délais de livraison sont :
+                            <ul>
+                                <li><strong>Diourbel :</strong> 24-48h</li>
+                                <li><strong>Dakar et régions :</strong> 2-3 jours ouvrés</li>
+                                <li><strong>Reste du Sénégal :</strong> 3-5 jours ouvrés</li>
+                            </ul>
+                            Les commandes passées avant 14h sont traitées le jour même.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>La livraison est-elle gratuite ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Oui ! La livraison est gratuite pour toute commande de 50 000 FCFA et plus. En dessous, les frais de livraison sont de 2 000 FCFA pour Diourbel et 3 000 FCFA pour le reste du Sénégal.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Comment suivre ma commande ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Vous recevrez un email de confirmation avec un numéro de suivi dès l'expédition de votre commande. Vous pouvez également nous contacter au +221 78 714 63 90 pour connaître l'état de votre livraison.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paiement -->
+            <div class="faq-section" data-category="paiement">
+                <h3>💳 Paiement</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quels modes de paiement acceptez-vous ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Nous acceptons plusieurs modes de paiement :
+                            <ul>
+                                <li>Mobile Money (Orange Money, Free Money, Wave)</li>
+                                <li>Virement bancaire</li>
+                                <li>Paiement à la livraison (espèces)</li>
+                                <li>Western Union / MoneyGram</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Le paiement en ligne est-il sécurisé ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Absolument ! Toutes nos transactions sont sécurisées et cryptées. Nous ne conservons aucune information bancaire sensible. Vos données sont protégées selon les normes internationales.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Puis-je payer en plusieurs fois ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Oui, pour les commandes de plus de 100 000 FCFA, nous proposons un paiement en 2 ou 3 fois sans frais. Contactez-nous pour organiser votre échéancier de paiement.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produits -->
+            <div class="faq-section" data-category="produit">
+                <h3>🌸 Produits</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Vos parfums sont-ils authentiques ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Oui, 100% ! Tous nos parfums sont authentiques et proviennent directement des maisons de parfumerie ou de distributeurs officiels. Nous garantissons l'authenticité de chaque produit vendu sur notre site.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Quelle est la durée de conservation des parfums ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Les parfums se conservent généralement 3 à 5 ans s'ils sont correctement stockés. Conservez-les à l'abri de la lumière directe, de la chaleur et de l'humidité. Fermez bien le flacon après chaque utilisation.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Puis-je retourner un parfum si je n'aime pas l'odeur ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Oui, nous offrons une garantie satisfait ou remboursé de 14 jours. Le parfum doit être retourné non utilisé (scellé) dans son emballage d'origine. Les frais de retour sont à votre charge.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Proposez-vous des échantillons ?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Oui ! Nous offrons des échantillons gratuits avec chaque commande. Vous pouvez également acheter des coffrets découverte contenant plusieurs échantillons pour tester différentes fragrances.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Khadija Parfum</h3>
+                    <p>Votre destination pour des parfums d'exception. Nous sélectionnons les meilleures fragrances du monde pour vous offrir une expérience olfactive unique.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens Utiles</h3>
+                    <a href="mon site.html">Accueil</a>
+                    <a href="about.html">À Propos</a>
+                    <a href="mon site.html#produits">Produits</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>📧 contact@khadijaparfun.com</p>
+                    <p>📞 +221 78 714 63 90</p>
+                    <p>📍 Diourbel, Sénégal</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Livraison</h3>
+                    <p>🚚 Livraison gratuite dès 50 000 FCFA</p>
+                    <p>⏰ Délai: 2-3 jours ouvrés</p>
+                    <p>🔄 Retour sous 14 jours</p>
+                </div>
+            </div>
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #444;">
+                <p>&copy; 2024 Khadija Parfum. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle FAQ item
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const wasActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!wasActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Filter by category
+        function filterCategory(category) {
+            // Update active tab
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.closest('.category-tab').classList.add('active');
+            
+            // Show/hide sections
+            document.querySelectorAll('.faq-section').forEach(section => {
+                if (category === 'all' || section.dataset.category === category) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
+        // Search FAQ
+        document.getElementById('faqSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer-content').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Show all sections if searching
+            if (searchTerm) {
+                document.querySelectorAll('.faq-section').forEach(section => {
+                    section.style.display = 'block';
+                });
+            }
+        });
+
+        // Cart functionality (simplified)
+        function toggleCart() {
+            alert('Panier disponible sur la page principale');
+        }
+    </script>
+</body>
+</html>

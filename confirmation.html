@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commande Confirmée - Khadija Parfum</title>
+    <meta name="description" content="Votre commande a été confirmée avec succès. Merci pour votre confiance en Khadija Parfum.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js"></script>
+    <style>
+        .confirmation-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--white) 100%);
+        }
+
+        .confirmation-box {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(139, 69, 19, 0.15);
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .success-icon::before {
+            content: '✓';
+            font-size: 3rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .confirmation-box h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .confirmation-box p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .order-details {
+            background: var(--accent-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .order-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            padding-top: 1rem;
+            margin-top: 1rem;
+            border-top: 2px solid var(--primary-color);
+        }
+
+        .detail-label {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .detail-value {
+            color: var(--text-light);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .next-steps {
+            background: var(--white);
+            border: 2px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .next-steps h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .next-steps ol {
+            padding-left: 1.5rem;
+        }
+
+        .next-steps li {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .confirmation-box {
+                padding: 2rem 1.5rem;
+            }
+
+            .confirmation-box h1 {
+                font-size: 2rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🌸</span>
+                    <h1>Khadija Parfum</h1>
+                </div>
+                <nav>
+                    <a href="mon site.html">Accueil</a>
+                    <a href="about.html">À Propos</a>
+                    <a href="mon site.html#produits">Produits</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Confirmation Section -->
+    <section class="confirmation-section">
+        <div class="confirmation-box">
+            <div class="success-icon"></div>
+            
+            <h1>Commande Confirmée !</h1>
+            <p>Merci pour votre commande chez Khadija Parfum. Votre commande a été enregistrée avec succès et sera traitée dans les plus brefs délais.</p>
+
+            <!-- Order Details -->
+            <div class="order-details">
+                <h3>📦 Détails de votre commande</h3>
+                <div class="detail-row">
+                    <span class="detail-label">Numéro de commande</span>
+                    <span class="detail-value" id="orderNumber">KP-XXXXX</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Date</span>
+                    <span class="detail-value" id="orderDate">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email</span>
+                    <span class="detail-value" id="orderEmail">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Articles</span>
+                    <span class="detail-value" id="orderItems">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Total</span>
+                    <span class="detail-value" id="orderTotal">-</span>
+                </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="next-steps">
+                <h4>🎯 Prochaines étapes</h4>
+                <ol>
+                    <li>Vous allez recevoir un email de confirmation à l'adresse fournie</li>
+                    <li>Notre équipe préparera votre commande dans les 24h</li>
+                    <li>Vous recevrez un email avec le numéro de suivi de votre colis</li>
+                    <li>Votre commande sera livrée sous 2-3 jours ouvrés</li>
+                </ol>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <a href="mon site.html" class="btn-primary">Continuer mes achats</a>
+                <a href="contact.html" class="btn-secondary">Contacter le service client</a>
+            </div>
+
+            <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-light);">
+                Pour toute question concernant votre commande, contactez-nous au <strong>+221 78 714 63 90</strong> ou par email à <strong>contact@khadijaparfun.com</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Khadija Parfum</h3>
+                    <p>Votre destination pour des parfums d'exception. Nous sélectionnons les meilleures fragrances du monde pour vous offrir une expérience olfactive unique.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liens Utiles</h3>
+                    <a href="mon site.html">Accueil</a>
+                    <a href="about.html">À Propos</a>
+                    <a href="mon site.html#produits">Produits</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>📧 contact@khadijaparfun.com</p>
+                    <p>📞 +221 78 714 63 90</p>
+                    <p>📍 Diourbel, Sénégal</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Livraison</h3>
+                    <p>🚚 Livraison gratuite dès 50 000 FCFA</p>
+                    <p>⏰ Délai: 2-3 jours ouvrés</p>
+                    <p>🔄 Retour sous 14 jours</p>
+                </div>
+            </div>
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #444;">
+                <p>&copy; 2024 Khadija Parfum. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get order information from URL parameters or localStorage
+        function loadOrderInfo() {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Try to get from URL first
+            let orderNumber = urlParams.get('order');
+            let orderTotal = urlParams.get('total');
+            let orderItems = urlParams.get('items');
+            let orderEmail = urlParams.get('email');
+            
+            // If not in URL, try localStorage
+            if (!orderNumber) {
+                const lastOrder = JSON.parse(localStorage.getItem('last_order') || '{}');
+                orderNumber = lastOrder.orderNumber || 'KP-' + Date.now().toString(36).toUpperCase();
+                orderTotal = lastOrder.total || '0';
+                orderItems = lastOrder.items || '0';
+                orderEmail = lastOrder.email || 'Non fourni';
+            }
+            
+            // Update page
+            document.getElementById('orderNumber').textContent = orderNumber;
+            document.getElementById('orderDate').textContent = new Date().toLocaleDateString('fr-FR');
+            document.getElementById('orderEmail').textContent = orderEmail;
+            document.getElementById('orderItems').textContent = orderItems + ' article(s)';
+            document.getElementById('orderTotal').textContent = parseInt(orderTotal).toLocaleString() + ' FCFA';
+        }
+
+        // Load order info on page load
+        document.addEventListener('DOMContentLoaded', loadOrderInfo);
+
+        // Print order
+        function printOrder() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
